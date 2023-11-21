@@ -1,8 +1,6 @@
 package com.codigomorsa.mycrud.services;
 
-import com.codigomorsa.mycrud.model.celebridad;
 import com.codigomorsa.mycrud.model.cine;
-import com.codigomorsa.mycrud.repositories.celebridadRepository;
 import com.codigomorsa.mycrud.repositories.cineRepository;
 import org.springframework.stereotype.Service;
 

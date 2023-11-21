@@ -4,7 +4,7 @@ spring:
 
 datasource:
   my-connection:
-    jdbc-url: jdbc:mysql://localhost:3306/MIBDP?useSSL=false
+    jdbc-url: jdbc:mysql://localhost:3306/TallerCR?useSSL=false
     username: root
     password: Altair306M
     maximunm-pool-size: 10

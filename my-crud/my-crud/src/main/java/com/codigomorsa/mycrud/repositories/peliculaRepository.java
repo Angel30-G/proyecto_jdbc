@@ -1,14 +1,9 @@
 package com.codigomorsa.mycrud.repositories;
 
 
-import com.codigomorsa.mycrud.model.celebridad;
 import com.codigomorsa.mycrud.model.pelicula;
-import com.codigomorsa.mycrud.model.visualizacion;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
