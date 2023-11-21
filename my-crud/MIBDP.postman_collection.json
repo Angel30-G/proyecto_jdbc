@@ -1,0 +1,255 @@
+{
+	"info": {
+		"_postman_id": "fc096503-b527-4bc6-bafa-a3c4fc30c899",
+		"name": "MIBDP",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30953080"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/cine",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Cinepolis\",\r\n    \"ubicacion\": \"City Mall\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/cine",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cine"
+					]
+				},
+				"description": "Agregar cine"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/peliculas",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"Mario\",\r\n    \"sinopsis\": \"Plomero va a otro mundo\",\r\n    \"visto\": \"Sí\",\r\n    \"genero\": \"Animada\",\r\n    \"nota\": 10,\r\n    \"visualizacion\": 2,\r\n    \"celebridad\": 5\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/peliculas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"peliculas"
+					]
+				},
+				"description": "Agregar peliculas"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/celebridad",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Eugenio Derbez\",\r\n    \"rol\": \"Actor\"\r\n\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/celebridad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"celebridad"
+					]
+				},
+				"description": "Agregar celebridad"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/series",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"titulo\": \"La hija del sur\",\r\n    \"episodios\": 40,\r\n    \"temporadas\": 3,\r\n    \"calificacion\": 4,\r\n    \"genero\": \"Drama\",\r\n    \"sinopsis\": \"Mujer lucha contra Narcos\",\r\n    \"visto\": \"Sí\",\r\n    \"celebridad\": 6\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/series",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"series"
+					]
+				},
+				"description": "Agregar series"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/visualizacion",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"veces_vista\": 2,\r\n    \"lugar\": \"Cine B\",\r\n    \"fecha\": \"2023-02-20\",\r\n    \"cine\": 4\r\n\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/visualizacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visualizacion"
+					]
+				},
+				"description": "Agregar visualizacion"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/peliculas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/peliculas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"peliculas"
+					]
+				},
+				"description": "Ver Peliculas"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/visualizacion",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/visualizacion",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"visualizacion"
+					]
+				},
+				"description": "Ver visualizaciones"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/series",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/series",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"series"
+					]
+				},
+				"description": "Ver Series"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/cine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/cine",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"cine"
+					]
+				},
+				"description": "Ver Cine"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/celebridad",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/celebridad",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"celebridad"
+					]
+				},
+				"description": "Ver celebridades"
+			},
+			"response": []
+		}
+	]
+}
