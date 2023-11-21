@@ -79,7 +79,7 @@ create table servicio(
 create table piezas_compradas(
   id int not null auto_increment,
   codigo varchar(50) not null,
-  cantidad varchar(50) not null,
+  cantidad int not null,
   costo_total int not null,
   pieza int,
   servicio int,
@@ -185,7 +185,7 @@ VALUES
 -- Insert into piezas_compradas table
 INSERT INTO piezas_compradas (codigo, cantidad, costo_total, pieza, servicio) 
 VALUES
-  ('P001', '2', 200, 1, 1);
+  ('P001', 2, 200, 1, 1);
 
 
   

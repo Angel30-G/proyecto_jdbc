@@ -27,7 +27,7 @@ public class VehiculoRepository {
     }
 
     public List<Vehiculo> getAllVehiculos(){
-        String sql = "select * from cine";
+        String sql = "select * from vehiculo";
         return jdbcTemplate.query(sql, mapper);
     }
 

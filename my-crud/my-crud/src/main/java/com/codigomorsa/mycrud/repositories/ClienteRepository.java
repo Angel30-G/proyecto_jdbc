@@ -25,7 +25,7 @@ public class ClienteRepository {
     }
 
     public List<Cliente> getAllClientes(){
-        String sql = "select * from series";
+        String sql = "select * from cliente";
         return jdbcTemplate.query(sql, mapper);
     }
 

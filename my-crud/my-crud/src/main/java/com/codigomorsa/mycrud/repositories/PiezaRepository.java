@@ -28,7 +28,7 @@ public class PiezaRepository {
     }
 
     public List<Pieza> getAllPiezas(){
-        String sql = "select * from visualizacion";
+        String sql = "select * from pieza";
         return jdbcTemplate.query(sql, mapper);
     }
 
