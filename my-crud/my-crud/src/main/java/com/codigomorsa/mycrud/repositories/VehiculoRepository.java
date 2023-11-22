@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -39,7 +40,7 @@ public class VehiculoRepository {
         parameters.put("numeroPlaca", newVehiculo.getNumero_placa());
         parameters.put("marca", newVehiculo.getMarca());
         parameters.put("modelo", newVehiculo.getModelo());
-        parameters.put("año_fabricacion", newVehiculo.getAño_fabricacion());
+        parameters.put("año_fabricacion", newVehiculo.getAnofabricacion());
         parameters.put("VIN", newVehiculo.getVIN());
         parameters.put("cliente", newVehiculo.getCliente());
 
@@ -55,7 +56,7 @@ public class VehiculoRepository {
             String numeroPlaca = sr.getString("numero_placa");
             String marca = sr.getNString("marca");
             String modelo = sr.getNString("modelo");
-            int anoFabricacion = sr.getInt("año_fabricacion");
+            Date anoFabricacion = sr.getDate("año_fabricacion");
             String VIN = sr.getNString("VIN");
             int cliente = sr.getInt("cliente");
 

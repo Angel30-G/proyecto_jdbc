@@ -1,17 +1,23 @@
 package com.codigomorsa.mycrud.model;
 
+import java.util.Date;
+
 public class Vehiculo {
 
 
-    public Vehiculo(long id, String numeroPlaca, String marca, String modelo, int anofabricacion, String vin, int cliente) {
-        this.id = id;
-        numero_placa = numeroPlaca;
-        this.marca = marca;
-        this.modelo = modelo;
-        this.anofabricacion = anofabricacion;
-        VIN = vin;
-        this.cliente = cliente;
-    }
+    public final long id;
+
+    public final String numero_placa;
+
+    public final String marca;
+
+
+
+    public final String modelo;
+
+    public final Date anofabricacion;
+
+    public final String VIN;
 
     public long getId() {
         return id;
@@ -29,7 +35,7 @@ public class Vehiculo {
         return modelo;
     }
 
-    public int getAño_fabricacion() {
+    public Date getAnofabricacion() {
         return anofabricacion;
     }
 
@@ -41,24 +47,16 @@ public class Vehiculo {
         return cliente;
     }
 
-    public final long id;
-
-    public final String numero_placa;
-
-    public final String marca;
-
-
-
-    public final String modelo;
-
-    public final int anofabricacion;
-
-    public final String VIN;
-
     public final int cliente;
 
 
-
-
-
+    public Vehiculo(long id, String numeroPlaca, String marca, String modelo, Date anofabricacion, String vin, int cliente) {
+        this.id = id;
+        numero_placa = numeroPlaca;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anofabricacion = anofabricacion;
+        VIN = vin;
+        this.cliente = cliente;
+    }
 }

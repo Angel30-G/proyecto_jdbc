@@ -1,7 +1,9 @@
 package com.codigomorsa.mycrud.controllers;
 
 
+import com.codigomorsa.mycrud.model.Taller;
 import com.codigomorsa.mycrud.model.Vehiculo;
+import com.codigomorsa.mycrud.services.TallerService;
 import com.codigomorsa.mycrud.services.VehiculoService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
