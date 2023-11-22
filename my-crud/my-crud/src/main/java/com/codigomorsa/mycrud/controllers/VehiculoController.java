@@ -1,5 +1,6 @@
 package com.codigomorsa.mycrud.controllers;
 
+
 import com.codigomorsa.mycrud.model.Vehiculo;
 import com.codigomorsa.mycrud.services.VehiculoService;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,19 +12,19 @@ import java.util.List;
 
 @RestController
 public class VehiculoController {
-    private final VehiculoService vehiculoService;
+    private final VehiculoService VehiculoService;
 
-    public VehiculoController(VehiculoService vehiculoService){
-        this.vehiculoService = vehiculoService;
+    public VehiculoController(VehiculoService VehiculoService){
+        this.VehiculoService = VehiculoService;
     }
 
     @GetMapping("/vehiculo")
-    public List<Vehiculo> getAllVehiculos(){
-        return vehiculoService.getAllVehiculos();
+    public List<Vehiculo> getAllVehiculo(){
+        return VehiculoService.getAllVehiculo();
     }
 
     @PostMapping("/vehiculo")
     public long createVehiculo(@RequestBody Vehiculo newVehiculo) {
-        return vehiculoService.createVehiculo(newVehiculo);
+        return VehiculoService.createVehiculo(newVehiculo);
     }
 }

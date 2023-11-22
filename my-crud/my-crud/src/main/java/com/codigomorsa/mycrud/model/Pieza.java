@@ -7,7 +7,7 @@ public class Pieza {
         return id;
     }
 
-    public int getCodigo() {
+    public String getCodigo() {
         return codigo;
     }
 
@@ -22,7 +22,7 @@ public class Pieza {
 
     public final long id;
 
-    public final int codigo;
+    public final String codigo;
 
     public final String descripcion;
 
@@ -32,7 +32,7 @@ public class Pieza {
 
 
 
-    public Pieza(long id, int codigo, String descripcion, int costo) {
+    public Pieza(long id, String codigo, String descripcion, int costo) {
         this.id = id;
         this.codigo = codigo;
         this.descripcion = descripcion;

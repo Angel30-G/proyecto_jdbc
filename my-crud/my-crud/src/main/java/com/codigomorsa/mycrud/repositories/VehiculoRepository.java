@@ -23,23 +23,23 @@ public class VehiculoRepository {
 
     public VehiculoRepository(NamedParameterJdbcTemplate namedParameterJdbcTemplate, DataSource dataSource){
         this.jdbcTemplate = namedParameterJdbcTemplate;
-        //this.insert = new SimpleJdbcInsert(dataSource).withTableName("cine").usingGeneratedKeyColumns("id");
+        //this.insert = new SimpleJdbcInsert(dataSource).withTableName("celebridad").usingGeneratedKeyColumns("id");
     }
 
-    public List<Vehiculo> getAllVehiculos(){
+    public List<Vehiculo> getAllVehiculo(){
         String sql = "select * from vehiculo";
         return jdbcTemplate.query(sql, mapper);
     }
 
     public long createVehiculo(Vehiculo newVehiculo) {
         String sql = "INSERT INTO vehiculo (numero_placa, marca, modelo, año_fabricacion, VIN, cliente) " +
-                "VALUES (:numeroPlaca, :marca, :modelo, :añoFabricacion, :VIN, :cliente)";
+                "VALUES (:numeroPlaca, :marca, :modelo, :año_fabricacion, :VIN, :cliente)";
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("numeroPlaca", newVehiculo.getNumero_placa());
         parameters.put("marca", newVehiculo.getMarca());
         parameters.put("modelo", newVehiculo.getModelo());
-        parameters.put("añoFabricacion", newVehiculo.getAño_fabricacion());
+        parameters.put("año_fabricacion", newVehiculo.getAño_fabricacion());
         parameters.put("VIN", newVehiculo.getVIN());
         parameters.put("cliente", newVehiculo.getCliente());
 
@@ -52,16 +52,16 @@ public class VehiculoRepository {
         public Vehiculo mapRow(ResultSet sr, int rowNum) throws SQLException {
 
             long id = sr.getInt("id");
-            int numeroPlaca = sr.getInt("numero_placa");
+            String numeroPlaca = sr.getString("numero_placa");
             String marca = sr.getNString("marca");
             String modelo = sr.getNString("modelo");
-            int añoFabricacion = sr.getInt("añoFabricacion");
+            int anoFabricacion = sr.getInt("año_fabricacion");
             String VIN = sr.getNString("VIN");
             int cliente = sr.getInt("cliente");
 
 
 
-            return new Vehiculo(id, numeroPlaca, marca, modelo, añoFabricacion, VIN, cliente);
+            return new Vehiculo(id, numeroPlaca, marca, modelo, anoFabricacion, VIN, cliente);
 
 
         }

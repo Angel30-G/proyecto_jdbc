@@ -13,6 +13,16 @@ public class Piezas_Compradas {
 
     public final int servicio;
 
+    public Piezas_Compradas(long id, String codigo, int cantidad, int costoTotal, int pieza, int servicio) {
+        this.id = id;
+        this.codigo = codigo;
+        this.cantidad = cantidad;
+        costo_total = costoTotal;
+        this.pieza = pieza;
+        this.servicio = servicio;
+    }
+
+
     public long getId() {
         return id;
     }
@@ -38,12 +48,4 @@ public class Piezas_Compradas {
     }
 
 
-    public Piezas_Compradas(long id, String codigo, int cantidad, int costoTotal, int pieza, int servicio) {
-        this.id = id;
-        this.codigo = codigo;
-        this.cantidad = cantidad;
-        costo_total = costoTotal;
-        this.pieza = pieza;
-        this.servicio = servicio;
-    }
 }

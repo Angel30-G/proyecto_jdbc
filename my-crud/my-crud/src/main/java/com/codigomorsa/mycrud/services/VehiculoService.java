@@ -14,8 +14,8 @@ public class VehiculoService {
         this.repository = repository;
     }
 
-    public List<Vehiculo> getAllVehiculos(){
-        return repository.getAllVehiculos();
+    public List<Vehiculo> getAllVehiculo(){
+        return repository.getAllVehiculo();
     }
 
 

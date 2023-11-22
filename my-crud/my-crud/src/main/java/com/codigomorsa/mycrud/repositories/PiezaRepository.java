@@ -50,7 +50,7 @@ public class PiezaRepository {
         public Pieza mapRow(ResultSet sr, int rowNum) throws SQLException {
 
             long id = sr.getInt("id");
-            int codigo = sr.getInt("codigo");
+            String codigo = sr.getString("codigo");
             String descripcion = sr.getNString("descripcion");
             int costo = sr.getInt("costo");
 

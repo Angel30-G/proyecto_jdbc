@@ -18,13 +18,13 @@ public class PiezasCompradasController {
         this.PiezasCompradasService = PiezasCompradasService;
     }
 
-    @GetMapping("/piezas_compradas")
-    public List<Piezas_Compradas> getAllPiezasCompradas(){
-        return PiezasCompradasService.getAllPiezasCompradas();
+    @GetMapping("/piezasC")
+    public List<Piezas_Compradas> getAllPiezasC(){
+        return PiezasCompradasService.getAllPiezasC();
     }
 
-    @PostMapping("/piezas_compradas")
-    public long createPiezasCompradas(@RequestBody Piezas_Compradas newPiezasCompradas) {
-        return PiezasCompradasService.createPiezasCompradas(newPiezasCompradas);
+    @PostMapping("/piezasC")
+    public long createPiezasC(@RequestBody Piezas_Compradas newPiezasC) {
+        return PiezasCompradasService.createPiezasC(newPiezasC);
     }
 }

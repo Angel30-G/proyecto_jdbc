@@ -18,7 +18,7 @@ import java.util.Map;
 public class ServicioRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    private final ServicioRepository.ServicioMapper mapper = new ServicioRepository.ServicioMapper();
+    private final ServicioMapper mapper = new ServicioMapper();
 
 
     //private final SimpleJdbcInsert insert;
@@ -55,14 +55,14 @@ public class ServicioRepository {
         public Servicio mapRow(ResultSet sr, int rowNum) throws SQLException {
 
             long id = sr.getInt("id");
-            Date fechaIngreso = sr.getDate("nombre");
-            Date fechaConclusion = sr.getDate("provincia");
-            String descripcion = sr.getNString("canton");
-            int horasInvertidas = sr.getInt("distrito");
-            int costoTotalManoDeObra = sr.getInt("otras_señas");
-            int costoTotalFacturado = sr.getInt("costo_operacion");
-            int porcentajeUtilidad = sr.getInt("horas_de_trabajo");
-            int vehiculo = sr.getInt("telefono");
+            Date fechaIngreso = sr.getDate("fecha_ingreso");
+            Date fechaConclusion = sr.getDate("fecha_conclusion");
+            String descripcion = sr.getNString("descripcion");
+            int horasInvertidas = sr.getInt("horas_invertidas");
+            int costoTotalManoDeObra = sr.getInt("costo_total_mano_de_obra");
+            int costoTotalFacturado = sr.getInt("costo_total_facturado");
+            int porcentajeUtilidad = sr.getInt("porcentaje_utilidad");
+            int vehiculo = sr.getInt("vehiculo");
             return new Servicio(id, fechaIngreso, fechaConclusion, descripcion, horasInvertidas, costoTotalManoDeObra, costoTotalFacturado, porcentajeUtilidad, vehiculo);
 
 

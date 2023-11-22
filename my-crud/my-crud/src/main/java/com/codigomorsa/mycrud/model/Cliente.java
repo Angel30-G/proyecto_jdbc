@@ -25,9 +25,10 @@ public class Cliente {
         return email;
     }
 
-    public String getTaller() {
+    public int getTaller() {
         return taller;
     }
+
 
 
     public final long id;
@@ -44,11 +45,12 @@ public class Cliente {
 
     public final String email;
 
-    public final String taller;
+
+    public final int taller;
 
 
 
-    public Cliente(long id, int numero_cliente, int cedula, String tipo_cedula, int telefono, String email, String taller) {
+    public Cliente(long id, int numero_cliente, int cedula, String tipo_cedula, int telefono, String email, int taller) {
         this.id = id;
         this.numero_cliente = numero_cliente;
         this.cedula = cedula;

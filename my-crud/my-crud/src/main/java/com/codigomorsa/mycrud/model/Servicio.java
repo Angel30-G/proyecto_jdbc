@@ -17,6 +17,22 @@ public class Servicio {
 
     public final int costo_total_facturado;
 
+    public final int porcentaje_utilidad;
+
+    public final int vehiculo;
+
+    public Servicio(long id, Date fechaIngreso, Date fechaConclusion, String descripcion, int horasInvertidas, int costoTotalManoDeObra, int costoTotalFacturado, int porcentajeUtilidad, int vehiculo) {
+        this.id = id;
+        fecha_ingreso = fechaIngreso;
+        fecha_conclusion = fechaConclusion;
+        this.descripcion = descripcion;
+        horas_invertidas = horasInvertidas;
+        costo_total_mano_de_obra = costoTotalManoDeObra;
+        costo_total_facturado = costoTotalFacturado;
+        porcentaje_utilidad = porcentajeUtilidad;
+        this.vehiculo = vehiculo;
+    }
+
     public long getId() {
         return id;
     }
@@ -53,20 +69,6 @@ public class Servicio {
         return vehiculo;
     }
 
-    public final int porcentaje_utilidad;
-
-    public final int vehiculo;
 
 
-    public Servicio(long id, Date fechaIngreso, Date fechaConclusion, String descripcion, int horasInvertidas, int costoTotalManoDeObra, int costoTotalFacturado, int porcentajeUtilidad, int vehiculo) {
-        this.id = id;
-        this.fecha_ingreso = fechaIngreso;
-        this.fecha_conclusion = fechaConclusion;
-        this.descripcion = descripcion;
-        this.horas_invertidas = horasInvertidas;
-        this.costo_total_mano_de_obra = costoTotalManoDeObra;
-        this.costo_total_facturado = costoTotalFacturado;
-        this.porcentaje_utilidad = porcentajeUtilidad;
-        this.vehiculo = vehiculo;
-    }
 }

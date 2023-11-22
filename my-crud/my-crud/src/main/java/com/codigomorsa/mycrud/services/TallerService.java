@@ -19,7 +19,7 @@ public class TallerService {
     }
 
 
-    public long createTaller(Taller newCelebridad) {
-        return repository.createTaller(newCelebridad);
+    public long createTaller(Taller newTaller) {
+        return repository.createTaller(newTaller);
     }
 }

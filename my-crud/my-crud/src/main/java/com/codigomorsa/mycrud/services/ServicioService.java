@@ -1,9 +1,7 @@
 package com.codigomorsa.mycrud.services;
 
 import com.codigomorsa.mycrud.model.Servicio;
-import com.codigomorsa.mycrud.model.Taller;
 import com.codigomorsa.mycrud.repositories.ServicioRepository;
-import com.codigomorsa.mycrud.repositories.TallerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

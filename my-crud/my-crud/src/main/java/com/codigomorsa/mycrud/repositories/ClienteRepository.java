@@ -16,7 +16,7 @@ import java.util.Map;
 public class ClienteRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
-    private final ClienteMapper mapper = new ClienteRepository.ClienteMapper();
+    private final ClienteMapper mapper = new ClienteMapper();
 
     //private final SimpleJdbcInsert insert;
 
@@ -52,10 +52,10 @@ public class ClienteRepository {
             long id = sr.getInt("id");
             int numero_cliente = sr.getInt("numero_cliente");
             int cedula = sr.getInt("cedula");
-            String tipoCedula = sr.getString("tipoCedula");
+            String tipoCedula = sr.getString("tipo_cedula");
             int telefono = sr.getInt("telefono");
             String email = sr.getNString("email");
-            String taller = sr.getNString("taller");
+            int taller = sr.getInt("taller");
 
             return new Cliente(id, numero_cliente, cedula, tipoCedula, telefono, email, taller);
 

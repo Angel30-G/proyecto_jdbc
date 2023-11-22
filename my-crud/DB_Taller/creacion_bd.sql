@@ -175,12 +175,12 @@ VALUES
 -- Insert into servicio table
 INSERT INTO servicio (fecha_ingreso, fecha_conclusion, descripcion, horas_invertidas, costo_total_mano_de_obra, costo_total_facturado, porcentaje_utilidad, vehiculo) 
 VALUES
-  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 40000, null, null, 1);
+  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 45000, null, null, 1);
   
 
 INSERT INTO servicio (fecha_ingreso, fecha_conclusion, descripcion, horas_invertidas, costo_total_mano_de_obra, costo_total_facturado, porcentaje_utilidad, vehiculo) 
 VALUES
-  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 21000, null, null, 1);
+  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 18000, null, null, 1);
 
 -- Insert into piezas_compradas table
 INSERT INTO piezas_compradas (codigo, cantidad, costo_total, pieza, servicio) 

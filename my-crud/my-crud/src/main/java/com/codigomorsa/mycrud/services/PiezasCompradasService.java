@@ -1,9 +1,7 @@
 package com.codigomorsa.mycrud.services;
 
 import com.codigomorsa.mycrud.model.Piezas_Compradas;
-import com.codigomorsa.mycrud.model.Taller;
 import com.codigomorsa.mycrud.repositories.PiezasCompradasRepository;
-import com.codigomorsa.mycrud.repositories.TallerRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,12 +14,12 @@ public class PiezasCompradasService {
         this.repository = repository;
     }
 
-    public List<Piezas_Compradas> getAllPiezasCompradas(){
-        return repository.getAllPiezasCompradas();
+    public List<Piezas_Compradas> getAllPiezasC(){
+        return repository.getAllPiezasC();
     }
 
 
-    public long createPiezasCompradas(Piezas_Compradas newPiezasCompradas) {
-        return repository.createPiezasCompradas(newPiezasCompradas);
+    public long createPiezasC(Piezas_Compradas newPiezasC) {
+        return repository.createPiezasCompradas(newPiezasC);
     }
 }

@@ -1,7 +1,6 @@
 package com.codigomorsa.mycrud.controllers;
 
 import com.codigomorsa.mycrud.model.Servicio;
-import com.codigomorsa.mycrud.model.Taller;
 import com.codigomorsa.mycrud.services.ServicioService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,8 +13,8 @@ import java.util.List;
 public class ServicioController {
     private final ServicioService ServicioService;
 
-    public ServicioController(ServicioService ServicioService){
-        this.ServicioService = ServicioService;
+    public ServicioController(ServicioService ServiceService){
+        this.ServicioService = ServiceService;
     }
 
     @GetMapping("/servicio")
