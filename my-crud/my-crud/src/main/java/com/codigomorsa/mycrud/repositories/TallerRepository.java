@@ -32,7 +32,7 @@ public class TallerRepository {
     }
 
     public long createTaller(Taller newTaller) {
-        String sql = "INSERT INTO taller (nombre, provincia, canton, distrito, otras_señas, costo_operacion, horas_de_trabajo, telefono, nombre_usuario, email, contraseña) VALUES (:nombre, :provincia, :canton, :distrito, :otras_senas, :costo_operacion, :horas_de_trabajo, :telefono, :nombre_usuario, :email, :contraseña)";
+        String sql = "INSERT INTO taller (nombre, provincia, canton, distrito, otras_señas, costo_operacion, horas_de_trabajo, telefono, nombre_usuario, email, contraseña) VALUES (:nombre, :provincia, :canton, :distrito, :otras_señas, :costo_operacion, :horas_de_trabajo, :telefono, :nombre_usuario, :email, :contraseña)";
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("nombre", newTaller.getNombre());

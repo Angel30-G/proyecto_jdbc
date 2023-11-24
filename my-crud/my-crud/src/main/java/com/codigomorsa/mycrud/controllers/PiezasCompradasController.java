@@ -2,7 +2,6 @@ package com.codigomorsa.mycrud.controllers;
 
 import com.codigomorsa.mycrud.model.Piezas_Compradas;
 import com.codigomorsa.mycrud.services.PiezasCompradasService;
-import com.codigomorsa.mycrud.services.ServicioService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

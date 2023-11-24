@@ -1,6 +1,5 @@
 package com.codigomorsa.mycrud.model;
 
-import java.sql.Date;
 
 public class Pieza {
     public long getId() {

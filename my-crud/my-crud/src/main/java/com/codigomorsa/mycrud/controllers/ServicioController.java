@@ -17,12 +17,12 @@ public class ServicioController {
         this.ServicioService = ServiceService;
     }
 
-    @GetMapping("/servicio")
+    @GetMapping("/taller/{id}/cliente/{id}/servicio")
     public List<Servicio> getAllServicio(){
         return ServicioService.getAllServicio();
     }
 
-    @PostMapping("/servicio")
+    @PostMapping("/taller/{id}/cliente/{id}/servicio")
     public long createServicio(@RequestBody Servicio newServicio) {
         return ServicioService.createServicio(newServicio);
     }
