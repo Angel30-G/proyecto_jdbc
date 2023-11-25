@@ -26,10 +26,12 @@ public class TallerRepository {
         //this.insert = new SimpleJdbcInsert(dataSource).withTableName("celebridad").usingGeneratedKeyColumns("id");
     }
 
+
     public List<Taller> getAllTaller(){
         String sql = "select * from taller";
         return jdbcTemplate.query(sql, mapper);
     }
+
 
     public long createTaller(Taller newTaller) {
         String sql = "INSERT INTO taller (nombre, provincia, canton, distrito, otras_señas, costo_operacion, horas_de_trabajo, telefono, nombre_usuario, email, contraseña) VALUES (:nombre, :provincia, :canton, :distrito, :otras_señas, :costo_operacion, :horas_de_trabajo, :telefono, :nombre_usuario, :email, :contraseña)";

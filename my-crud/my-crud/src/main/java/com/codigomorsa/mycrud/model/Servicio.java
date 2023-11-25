@@ -1,6 +1,7 @@
 package com.codigomorsa.mycrud.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Servicio {
     public final long id;
@@ -20,6 +21,27 @@ public class Servicio {
     public final int porcentaje_utilidad;
 
     public final int vehiculo;
+
+    private List<Cliente> clienteList;
+
+    private List<Vehiculo> vehiculoList;
+
+    public List<Cliente> getClienteList() {
+        return clienteList;
+    }
+
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
+    }
+
+    public List<Vehiculo> getVehiculoList() {
+        return vehiculoList;
+    }
+
+    public void setVehiculoList(List<Vehiculo> vehiculoList) {
+        this.vehiculoList = vehiculoList;
+    }
+
 
     public Servicio(long id, Date fechaIngreso, Date fechaConclusion, String descripcion, int horasInvertidas, int costoTotalManoDeObra, int costoTotalFacturado, int porcentajeUtilidad, int vehiculo) {
         this.id = id;

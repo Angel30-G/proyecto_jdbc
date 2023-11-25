@@ -22,4 +22,5 @@ public class TallerService {
     public long createTaller(Taller newTaller) {
         return repository.createTaller(newTaller);
     }
+
 }

@@ -18,8 +18,16 @@ public class ServicioService {
         return repository.getAllServicio();
     }
 
+    public List<Servicio> getAllServicios() {
+        return repository.getAllServicios();
+    }
+
 
     public long createServicio(Servicio newServicio) {
         return repository.createServicio(newServicio);
+    }
+
+    public Servicio getServicioById(long id) {
+        return repository.getServicioById(id);
     }
 }

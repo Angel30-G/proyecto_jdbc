@@ -136,7 +136,7 @@ begin
     WHERE taller.id = servicio.id;
 
     -- Obtener el costo unitario de mano de obra por hora del servicio
-    SELECT NEW.horas_invertidas / NEW.costo_total_mano_de_obra INTO costo_unitario_mano_obra_hora;
+    SELECT NEW.costo_total_mano_de_obra / NEW.horas_invertidas INTO costo_unitario_mano_obra_hora;
 
     -- Validar la condición
     if costo_unitario_mano_obra_hora < costo_minimo_operacion_hora then
@@ -148,9 +148,6 @@ end;
 delimiter ;
 
 
-
-
-  
 -- Insert into taller table
 INSERT INTO taller (nombre, provincia, canton, distrito, otras_señas, costo_operacion, horas_de_trabajo, telefono, nombre_usuario, email, contraseña) 
 VALUES
@@ -159,12 +156,16 @@ VALUES
 -- Insert into cliente table
 INSERT INTO cliente (numero_cliente, cedula, tipo_cedula, telefono, email, taller) 
 VALUES
-  (1, 123456789, 'Física', 22223333, 'cliente1@gmail.com', 1);
+  (1, 123456789, 'Física', 22223333, 'cliente1@gmail.com', 1),
+  (2, 29382933, 'Física', 192939398, 'cliente2@gmail.com', 1),
+  (3, 87383728, 'Virtual', 28928389, 'cliente3@gmail.com', 1);
 
 -- Insert into vehiculo table
 INSERT INTO vehiculo (numero_placa, marca, modelo, año_fabricacion, VIN, cliente) 
 VALUES
-  ('ABC123', 'Toyota', 'Camry', '2020-01-01', '123ABC', 1);
+  ('ABC123', 'Toyota', 'Camry', '2020-01-01', '123ABC', 1),
+  ('ABC123', 'Nissan', 'gay', '2020-01-03', '123AKC', 2),
+  ('ABC123', 'Mitsubishi', 'no entiendo', '2020-01-04', '123ABP', 3);
 
 
 -- Insert into pieza table
@@ -175,12 +176,11 @@ VALUES
 -- Insert into servicio table
 INSERT INTO servicio (fecha_ingreso, fecha_conclusion, descripcion, horas_invertidas, costo_total_mano_de_obra, costo_total_facturado, porcentaje_utilidad, vehiculo) 
 VALUES
-  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 45000, null, null, 1);
+  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 45000, null, null, 1),
+  ('2023-01-01', '2023-01-05', 'Reparación de nada', 5, 30000, null, null, 2),
+  ('2023-01-01', '2023-01-05', 'Reparación de transmision', 6, 100000, null, null, 3);
   
 
-INSERT INTO servicio (fecha_ingreso, fecha_conclusion, descripcion, horas_invertidas, costo_total_mano_de_obra, costo_total_facturado, porcentaje_utilidad, vehiculo) 
-VALUES
-  ('2023-01-01', '2023-01-05', 'Reparación de motor', 7, 18000, null, null, 1);
 
 -- Insert into piezas_compradas table
 INSERT INTO piezas_compradas (codigo, cantidad, costo_total, pieza, servicio) 
@@ -192,5 +192,3 @@ VALUES
 call calcular_datos_financieros(1);
 
 select * from servicio;
-
-

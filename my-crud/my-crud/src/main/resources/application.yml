@@ -6,7 +6,7 @@ datasource:
   my-connection:
     jdbc-url: jdbc:mysql://localhost:3306/TallerCR?useSSL=false
     username: root
-    password: Montes
+    password: Altair306M
     maximunm-pool-size: 10
     pool-name: "crud-pool"
     auto-commit: true

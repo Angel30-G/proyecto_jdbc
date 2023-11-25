@@ -11,8 +11,6 @@ public class Vehiculo {
 
     public final String marca;
 
-
-
     public final String modelo;
 
     public final Date anofabricacion;
