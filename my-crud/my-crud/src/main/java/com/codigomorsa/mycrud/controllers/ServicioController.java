@@ -3,6 +3,7 @@ package com.codigomorsa.mycrud.controllers;
 import com.codigomorsa.mycrud.model.Servicio;
 import com.codigomorsa.mycrud.services.ServicioService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,8 +23,14 @@ public class ServicioController {
         return ServicioService.getAllServicio();
     }
 
+    
     @PostMapping("/taller/{id}/cliente/{id}/servicio")
     public long createServicio(@RequestBody Servicio newServicio) {
-        return ServicioService.createServicio(newServicio);
+        return ServicioService.createServicioInicial(newServicio);
+    }
+
+    @PatchMapping("/taller/{id}/cliente/{id}/servicio/{id}")
+    public long createCierreServicio(@RequestBody Servicio newServicio){
+        return ServicioService.createCierreServicio(newServicio);
     }
 }

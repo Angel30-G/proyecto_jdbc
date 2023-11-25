@@ -19,7 +19,11 @@ public class ServicioService {
     }
 
 
-    public long createServicio(Servicio newServicio) {
-        return repository.createServicio(newServicio);
+    public long createServicioInicial(Servicio newServicio) {
+        return repository.createServicioInicial(newServicio);
+    }
+
+    public long createCierreServicio(Servicio newServicio){
+        return repository.createCierreServicio(newServicio);
     }
 }

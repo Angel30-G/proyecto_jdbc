@@ -32,6 +32,7 @@ public class ServicioRepository {
         return jdbcTemplate.query(sql, mapper);
     }
 
+    /* 
     public long createServicio(Servicio newServicio) {
         String sql = "INSERT INTO servicio (fecha_ingreso, fecha_conclusion, descripcion, horas_invertidas, costo_total_mano_de_obra, costo_total_facturado, porcentaje_utilidad, vehiculo) " +
                 "VALUES (:fecha_ingreso, :fecha_conclusion, :descripcion, :horas_invertidas, :costo_total_mano_de_obra, :costo_total_facturado, :porcentaje_utilidad, :vehiculo)";
@@ -47,7 +48,41 @@ public class ServicioRepository {
         parameters.put("vehiculo", newServicio.getVehiculo());
 
         return jdbcTemplate.update(sql, parameters);
+    }*/
+
+     public long createServicioInicial(Servicio newServicioInicial) {
+        String sql = "INSERT INTO servicio (fecha_ingreso, descripcion, horas_invertidas,costo_total_mano_de_obra, vehiculo) " +
+                "VALUES (:fecha_ingreso, :descripcion, :horas_invertidas, :costo_total_mano_de_obra, :vehiculo)";
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("fecha_ingreso", newServicioInicial.getFecha_ingreso());
+        parameters.put("descripcion", newServicioInicial.getDescripcion());
+        parameters.put("horas_invertidas", newServicioInicial.getHoras_invertidas());
+        parameters.put("costo_total_mano_de_obra", newServicioInicial.getCosto_total_mano_de_obra());
+        parameters.put("vehiculo", newServicioInicial.getVehiculo());
+
+        return jdbcTemplate.update(sql, parameters);
     }
+
+    public long createCierreServicio(Servicio newServicioCierreServicio){
+        String sql = "UPDATE SERVICIO " +
+        "SET fecha_conclusion = :fecha_conclusion, " +
+        "horas_invertidas = :horas_invertidas, " +
+        "costo_total_mano_de_obra = :costo_total_mano_de_obra, " +
+        "costo_total_facturado = :costo_total_facturado, " +
+        "porcentaje_utilidad = :porcentaje_utilidad ";
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("fecha_conclusion", newServicioCierreServicio.getFecha_conclusion());
+        parameters.put("horas_invertidas", newServicioCierreServicio.getHoras_invertidas());
+        parameters.put("costo_total_mano_de_obra", newServicioCierreServicio.getCosto_total_mano_de_obra());
+        parameters.put("costo_total_facturado", newServicioCierreServicio.getCosto_total_facturado());
+        parameters.put("porcentaje_utilidad", newServicioCierreServicio.getPorcentaje_utilidad());
+
+        return jdbcTemplate.update(sql, parameters);
+    }
+    
+
 
     private static class ServicioMapper implements RowMapper<Servicio> {
         @Override
