@@ -27,8 +27,8 @@ public class ServicioService {
         return repository.createServicioInicial(newServicio);
     }
 
-    public long createCierreServicio(Servicio newServicio){
-        return repository.createCierreServicio(newServicio);
+    public long createCierreServicio(Servicio newServicio, long idServicio){
+        return repository.createCierreServicio(newServicio, idServicio);
     }
     public Servicio getServicioById(long id) {
         return repository.getServicioById(id);

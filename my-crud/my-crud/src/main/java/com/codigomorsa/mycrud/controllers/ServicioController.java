@@ -52,13 +52,14 @@ public class ServicioController {
         return ServicioService.createServicioInicial(newServicio);
     }
 
-    @PatchMapping("/taller/{id}/cliente/{id}/servicio/{id}")
-    public long createCierreServicio(@RequestBody Servicio newServicio){
-        return ServicioService.createCierreServicio(newServicio);
-    }
+    @PatchMapping("/taller/{idTaller}/cliente/{idCliente}/servicio/{idServicio}")
+public long createCierreServicio(@RequestBody Servicio newServicio, @PathVariable long idServicio){
+    return ServicioService.createCierreServicio(newServicio, idServicio);
+}
+
 
    
 
-    
+
 }
 
