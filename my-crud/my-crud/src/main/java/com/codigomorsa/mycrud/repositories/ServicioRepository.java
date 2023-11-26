@@ -1,6 +1,9 @@
 package com.codigomorsa.mycrud.repositories;
 
+import com.codigomorsa.mycrud.model.Cliente;
 import com.codigomorsa.mycrud.model.Servicio;
+import com.codigomorsa.mycrud.model.Vehiculo;
+
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -8,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -18,6 +22,48 @@ public class ServicioRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     private final ServicioMapper mapper = new ServicioMapper();
+
+    private final RowMapper<Vehiculo> Vmapper = new VehiculoMapper();
+    private final RowMapper<Cliente> Cmapper = new ClienteMapper();
+
+
+    private static class ClienteMapper implements RowMapper<Cliente> {
+        @Override
+        public Cliente mapRow(ResultSet sr, int rowNum) throws SQLException {
+
+            long id = sr.getInt("id");
+            int numero_cliente = sr.getInt("numero_cliente");
+            int cedula = sr.getInt("cedula");
+            String tipoCedula = sr.getString("tipo_cedula");
+            int telefono = sr.getInt("telefono");
+            String email = sr.getNString("email");
+            int taller = sr.getInt("taller");
+
+            return new Cliente(id, numero_cliente, cedula, tipoCedula, telefono, email, taller);
+
+
+        }
+    }
+
+    private static class VehiculoMapper implements RowMapper<Vehiculo> {
+        @Override
+        public Vehiculo mapRow(ResultSet sr, int rowNum) throws SQLException {
+
+            long id = sr.getInt("id");
+            String numeroPlaca = sr.getString("numero_placa");
+            String marca = sr.getNString("marca");
+            String modelo = sr.getNString("modelo");
+            Date anoFabricacion = sr.getDate("año_fabricacion");
+            String VIN = sr.getNString("VIN");
+            int cliente = sr.getInt("cliente");
+
+
+
+            return new Vehiculo(id, numeroPlaca, marca, modelo, anoFabricacion, VIN, cliente);
+
+
+        }
+    }
 
 
     //private final SimpleJdbcInsert insert;
@@ -64,13 +110,14 @@ public class ServicioRepository {
         return jdbcTemplate.update(sql, parameters);
     }
 
-    public long createCierreServicio(Servicio newServicioCierreServicio){
+    /*public long createCierreServicio(Servicio newServicioCierreServicio){
         String sql = "UPDATE SERVICIO " +
         "SET fecha_conclusion = :fecha_conclusion, " +
         "horas_invertidas = :horas_invertidas, " +
         "costo_total_mano_de_obra = :costo_total_mano_de_obra, " +
         "costo_total_facturado = :costo_total_facturado, " +
-        "porcentaje_utilidad = :porcentaje_utilidad ";
+        "porcentaje_utilidad = :porcentaje_utilidad " +
+        "WHERE id = :id";
 
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("fecha_conclusion", newServicioCierreServicio.getFecha_conclusion());
@@ -81,7 +128,54 @@ public class ServicioRepository {
 
         return jdbcTemplate.update(sql, parameters);
     }
+    */
+
+    public long createCierreServicio(Servicio newServicioCierreServicio){
+        String sql = "UPDATE SERVICIO " +
+            "SET fecha_conclusion = :fecha_conclusion, " +
+            "horas_invertidas = :horas_invertidas, " +
+            "costo_total_mano_de_obra = :costo_total_mano_de_obra, " +
+            "costo_total_facturado = :costo_total_facturado, " +
+            "porcentaje_utilidad = :porcentaje_utilidad " +
+            "WHERE id = :id";  // Suponiendo que id es el identificador del servicio a actualizar
     
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("fecha_conclusion", newServicioCierreServicio.getFecha_conclusion());
+        parameters.put("horas_invertidas", newServicioCierreServicio.getHoras_invertidas());
+        parameters.put("costo_total_mano_de_obra", newServicioCierreServicio.getCosto_total_mano_de_obra());
+        parameters.put("costo_total_facturado", newServicioCierreServicio.getCosto_total_facturado());
+        parameters.put("porcentaje_utilidad", newServicioCierreServicio.getPorcentaje_utilidad());
+        parameters.put("id", newServicioCierreServicio.getId());  // Utilizando el método getId() para obtener el ID del servicio
+    
+        return jdbcTemplate.update(sql, parameters);
+    }
+    
+    public Servicio getServicioById(long id) {
+        String sql = "SELECT s.*, c.* FROM servicio s " +
+                "JOIN vehiculo v ON s.vehiculo = v.id " +
+                "JOIN cliente c ON v.cliente = c.id " +
+                "WHERE s.id = :id";
+
+        Map<String, Object> parameters = Collections.singletonMap("id", id);
+        return jdbcTemplate.queryForObject(sql, parameters, new ServicioMapper());
+    }
+
+    public List<Servicio> getAllServicios() {
+        String sql = "SELECT s.*, c.* FROM servicio s " +
+                "JOIN vehiculo v ON s.vehiculo = v.id " +
+                "JOIN cliente c ON v.cliente = c.id ";
+        List<Servicio> servicioList = jdbcTemplate.query(sql, mapper);
+        for(Servicio currentServicio: servicioList) {
+            String sqlVehiculo = "select v.* from vehiculo v, servicio s where v.id = s.vehiculo";
+            String sqlCliente = "select c.* from cliente c, vehiculo v where c.id = v.cliente";
+            List<Vehiculo> vehiculoList = jdbcTemplate.query(sqlVehiculo, Vmapper);
+            List<Cliente> clienteList = jdbcTemplate.query(sqlCliente, Cmapper);
+            currentServicio.setVehiculoList(vehiculoList);
+            currentServicio.setClienteList(clienteList);
+        }
+        return servicioList;
+    }
+
 
 
     private static class ServicioMapper implements RowMapper<Servicio> {

@@ -18,6 +18,10 @@ public class ServicioService {
         return repository.getAllServicio();
     }
 
+    public List<Servicio> getAllServicios() {
+        return repository.getAllServicios();
+    }
+
 
     public long createServicioInicial(Servicio newServicio) {
         return repository.createServicioInicial(newServicio);
@@ -25,5 +29,8 @@ public class ServicioService {
 
     public long createCierreServicio(Servicio newServicio){
         return repository.createCierreServicio(newServicio);
+    }
+    public Servicio getServicioById(long id) {
+        return repository.getServicioById(id);
     }
 }
