@@ -26,6 +26,18 @@ public class Servicio {
 
     private List<Vehiculo> vehiculoList;
 
+    private List<Piezas_Compradas> piezasCompradasList;
+
+    private List<Vehiculo> numero_placa;
+
+    public List<Piezas_Compradas> getPiezasCompradasList() {
+        return piezasCompradasList;
+    }
+
+    public void setPiezasCompradasList(List<Piezas_Compradas> piezasCompradasList) {
+        this.piezasCompradasList = piezasCompradasList;
+    }
+
     public List<Cliente> getClienteList() {
         return clienteList;
     }

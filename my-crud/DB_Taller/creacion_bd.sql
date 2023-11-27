@@ -164,14 +164,15 @@ VALUES
 INSERT INTO vehiculo (numero_placa, marca, modelo, año_fabricacion, VIN, cliente) 
 VALUES
   ('ABC123', 'Toyota', 'Camry', '2020-01-01', '123ABC', 1),
-  ('ABC123', 'Nissan', 'gay', '2020-01-03', '123AKC', 2),
+  ('ABC123', 'Nissan', 'gay', '2020-01-03', '123AKC', 1),
   ('ABC123', 'Mitsubishi', 'no entiendo', '2020-01-04', '123ABP', 3);
 
 
 -- Insert into pieza table
 INSERT INTO pieza (codigo, descripcion, costo) 
 VALUES
-  ('P001', 'Batería', 100);
+  ('P001', 'Batería', 100),
+  ('P001', 'Tuercas', 100);
   
 -- Insert into servicio table
 INSERT INTO servicio (fecha_ingreso, fecha_conclusion, descripcion, horas_invertidas, costo_total_mano_de_obra, costo_total_facturado, porcentaje_utilidad, vehiculo) 
@@ -185,7 +186,8 @@ VALUES
 -- Insert into piezas_compradas table
 INSERT INTO piezas_compradas (codigo, cantidad, costo_total, pieza, servicio) 
 VALUES
-  ('P001', 2, 200, 1, 1);
+  ('P001', 2, 200, 1, 1),
+  ('P002', 1, 20000, 1, 2);
 
 
   

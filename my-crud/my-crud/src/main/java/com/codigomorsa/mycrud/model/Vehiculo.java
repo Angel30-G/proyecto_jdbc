@@ -1,6 +1,7 @@
 package com.codigomorsa.mycrud.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class Vehiculo {
 
@@ -16,6 +17,27 @@ public class Vehiculo {
     public final Date anofabricacion;
 
     public final String VIN;
+
+    private List<Cliente> clienteList;
+
+    private List<placa> placaList;
+
+    public List<placa> getPlacaList() {
+        return placaList;
+    }
+
+    public void setPlacaList(List<placa> placaList) {
+        this.placaList = placaList;
+    }
+
+
+    public List<Cliente> getClienteList() {
+        return clienteList;
+    }
+
+    public void setClienteList(List<Cliente> clienteList) {
+        this.clienteList = clienteList;
+    }
 
     public long getId() {
         return id;

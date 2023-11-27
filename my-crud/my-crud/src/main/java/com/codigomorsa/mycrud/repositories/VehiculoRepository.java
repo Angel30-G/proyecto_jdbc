@@ -1,5 +1,6 @@
 package com.codigomorsa.mycrud.repositories;
 
+import com.codigomorsa.mycrud.model.Cliente;
 import com.codigomorsa.mycrud.model.Vehiculo;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -8,16 +9,15 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Repository
 public class VehiculoRepository {
     private final NamedParameterJdbcTemplate jdbcTemplate;
 
     private final VehiculoMapper mapper = new VehiculoMapper();
+
+    private final RowMapper<Cliente> Cmapper = new VehiculoRepository.ClienteMapper();
 
 
     //private final SimpleJdbcInsert insert;
@@ -31,6 +31,7 @@ public class VehiculoRepository {
         String sql = "select * from vehiculo";
         return jdbcTemplate.query(sql, mapper);
     }
+
 
     public long createVehiculo(Vehiculo newVehiculo) {
         String sql = "INSERT INTO vehiculo (numero_placa, marca, modelo, año_fabricacion, VIN, cliente) " +
@@ -46,6 +47,7 @@ public class VehiculoRepository {
 
         return jdbcTemplate.update(sql, parameters);
     }
+
 
 
     private static class VehiculoMapper implements RowMapper<Vehiculo> {
@@ -66,5 +68,53 @@ public class VehiculoRepository {
 
 
         }
+    }
+
+    private static class ClienteMapper implements RowMapper<Cliente> {
+        @Override
+        public Cliente mapRow(ResultSet sr, int rowNum) throws SQLException {
+
+            long id = sr.getInt("id");
+            int numero_cliente = sr.getInt("numero_cliente");
+            int cedula = sr.getInt("cedula");
+            String tipoCedula = sr.getString("tipo_cedula");
+            int telefono = sr.getInt("telefono");
+            String email = sr.getNString("email");
+            int taller = sr.getInt("taller");
+
+            return new Cliente(id, numero_cliente, cedula, tipoCedula, telefono, email, taller);
+
+
+        }
+    }
+
+    public long createVehiculoPlaca(Vehiculo newVehiculo) {
+        String sql = "INSERT INTO vehiculo (numero_placa) " +
+                "VALUES (:numeroPlaca)";
+
+        Map<String, Object> parameters = new HashMap<>();
+        parameters.put("numeroPlaca", newVehiculo.getNumero_placa());
+
+        return jdbcTemplate.update(sql, parameters);
+    }
+
+
+    public Vehiculo getVehiculoByPlaca(String placa) {
+        String sql = "SELECT c.*, v.* FROM cliente c " +
+                "JOIN vehiculo v ON v.cliente = c.id " +
+                "WHERE v.numero_placa = :placa";
+
+        Map<String, Object> parameters = Collections.singletonMap("placa", placa);
+        Vehiculo vehiculo = jdbcTemplate.queryForObject(sql, parameters, new VehiculoMapper());
+
+        // Obtener la información del cliente relacionado
+        String sqlCliente = "SELECT c.* FROM cliente c WHERE c.id = :clienteId";
+        Map<String, Object> clienteParameters = Collections.singletonMap("clienteId", vehiculo.getCliente());
+        Cliente cliente = jdbcTemplate.queryForObject(sqlCliente, clienteParameters, Cmapper);
+
+        // Configurar la lista de clientes en el vehículo
+        vehiculo.setClienteList(Collections.singletonList(cliente));  // Corregir aquí
+
+        return vehiculo;
     }
 }

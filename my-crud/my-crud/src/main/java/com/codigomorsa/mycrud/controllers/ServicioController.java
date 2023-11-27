@@ -84,6 +84,7 @@ public class ServicioController {
         return ServicioService.createServicioInicial(newServicio);
     }
 
+<<<<<<< HEAD
     @PostMapping("/taller/{idTaller}/cliente/{idCliente}/servicio/{id}")
     public ResponseEntity<Long> createServicio(@RequestBody Servicio newServicio, @PathVariable long id) {
         vehiculoService.createVehiculoPlaca(vehiculo);
@@ -104,9 +105,16 @@ public class ServicioController {
     public long createCierreServicio(@RequestBody Servicio newServicio){
         return ServicioService.createCierreServicio(newServicio);
     }
+=======
+    @PatchMapping("/taller/{idTaller}/cliente/{idCliente}/servicio/{idServicio}")
+public long createCierreServicio(@RequestBody Servicio newServicio, @PathVariable long idServicio){
+    return ServicioService.createCierreServicio(newServicio, idServicio);
+}
+
+>>>>>>> b917fd628dd8fcac8a5ceb5f2cbaeeb21be754fc
 
    
 
-    
+
 }
 

@@ -245,14 +245,14 @@ public class ServicioRepository {
     }
     */
 
-    public long createCierreServicio(Servicio newServicioCierreServicio){
+    public long createCierreServicio(Servicio newServicioCierreServicio, long idServicio){
         String sql = "UPDATE SERVICIO " +
             "SET fecha_conclusion = :fecha_conclusion, " +
             "horas_invertidas = :horas_invertidas, " +
             "costo_total_mano_de_obra = :costo_total_mano_de_obra, " +
             "costo_total_facturado = :costo_total_facturado, " +
             "porcentaje_utilidad = :porcentaje_utilidad " +
-            "WHERE id = :id";  // Suponiendo que id es el identificador del servicio a actualizar
+            "WHERE id = :idServicio";  
     
         Map<String, Object> parameters = new HashMap<>();
         parameters.put("fecha_conclusion", newServicioCierreServicio.getFecha_conclusion());
@@ -260,7 +260,7 @@ public class ServicioRepository {
         parameters.put("costo_total_mano_de_obra", newServicioCierreServicio.getCosto_total_mano_de_obra());
         parameters.put("costo_total_facturado", newServicioCierreServicio.getCosto_total_facturado());
         parameters.put("porcentaje_utilidad", newServicioCierreServicio.getPorcentaje_utilidad());
-        parameters.put("id", newServicioCierreServicio.getId());  // Utilizando el método getId() para obtener el ID del servicio
+        parameters.put("idServicio", idServicio);
     
         return jdbcTemplate.update(sql, parameters);
     }

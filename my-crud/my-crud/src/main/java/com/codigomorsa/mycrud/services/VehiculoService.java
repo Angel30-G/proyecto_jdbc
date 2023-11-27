@@ -22,4 +22,12 @@ public class VehiculoService {
     public long createVehiculo(Vehiculo newVehiculo) {
         return repository.createVehiculo(newVehiculo);
     }
+
+    public long createVehiculoPlaca(Vehiculo newVehiculo){
+        return repository.createVehiculoPlaca(newVehiculo);
+    }
+
+    public Vehiculo getVehiculoByPlaca(String placa){
+        return repository.getVehiculoByPlaca(placa);
+    }
 }
