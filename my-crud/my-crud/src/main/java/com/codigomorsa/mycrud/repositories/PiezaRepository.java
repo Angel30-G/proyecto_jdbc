@@ -31,7 +31,7 @@ public class PiezaRepository {
         return jdbcTemplate.query(sql, mapper);
     }
 
-    public long createPieza(Pieza newPieza) {
+        public long createPieza(Pieza newPieza) {
         String sql = "INSERT INTO pieza (codigo, descripcion, costo) " +
                 "VALUES (:codigo, :descripcion, :costo)";
 
